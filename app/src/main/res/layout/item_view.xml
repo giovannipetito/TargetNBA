@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="articleDataItem"
+            name="allTeamsDataItem"
             type="com.petito.targetnba.presentation.allteams.AllTeamsDataItem" />
 
         <variable
@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:text="@{articleDataItem.name}"
+                    android:text="@{allTeamsDataItem.name}"
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:singleLine="true"
-                    android:text="@{articleDataItem.full_name}"
+                    android:text="@{allTeamsDataItem.full_name}"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     tools:text="By JULIAN E. BARNES, NICHOLAS FANDOS, MICHAEL S. SCHMIDT and MATTHEW ROSENBERG" />
@@ -76,7 +76,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:singleLine="true"
-                        android:text="@{articleDataItem.city}"
+                        android:text="@{allTeamsDataItem.city}"
                         android:textColor="@color/black"
                         android:textSize="12sp"
                         tools:text="2019-09-19" />

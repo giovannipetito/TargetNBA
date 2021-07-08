@@ -16,8 +16,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        tools:context=".presentation.main.article.ArticleFragment">
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,8 +38,8 @@
                 android:id="@+id/resultsBeanRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:adapter="@{viewModel.articlesLiveDataLiveData}"
-                tools:listitem="@layout/item_article_view" />
+                app:adapter="@{viewModel.listLD}"
+                tools:listitem="@layout/item_view" />
 
         </LinearLayout>
 

@@ -26,7 +26,30 @@
     <fragment
         android:id="@+id/allTeamsFragment"
         android:name="com.petito.targetnba.presentation.allteams.AllTeamsFragment"
-        android:label="fragment_view_transaction"
-        tools:layout="@layout/fragment_all_teams" />
+        android:label="fragment_all_teams"
+        tools:layout="@layout/fragment_all_teams">
+
+        <action
+            android:id="@+id/action_allTeamsFragment_to_teamDetailFragment"
+            app:destination="@id/teamDetailFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
+    </fragment>
+
+    <!-- TeamDetailFragment -->
+    <fragment
+        android:id="@+id/teamDetailFragment"
+        android:name="com.petito.targetnba.presentation.teamdetail.TeamDetailFragment"
+        android:label="fragment_team_detail"
+        tools:layout="@layout/fragment_team_detail">
+
+        <argument
+            android:name="allTeamsDataItem"
+            app:argType="com.petito.targetnba.presentation.allteams.AllTeamsDataItem" />
+
+    </fragment>
 
 </navigation>

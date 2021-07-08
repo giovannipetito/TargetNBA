@@ -15,7 +15,7 @@ class TeamDetailFragment :
     BaseFragment<FragmentTeamDetailBinding, TeamDetailViewModel>() {
     @Inject
     lateinit var factory: ViewModelProviderFactory
-    private var articleDataItem: AllTeamsDataItem? = null
+    private var allTeamsDataItem: AllTeamsDataItem? = null
 
     override val bindingVariable: Int
         get() = BR.viewModel
@@ -29,7 +29,7 @@ class TeamDetailFragment :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
-            articleDataItem = arguments?.getParcelable("article")
+            allTeamsDataItem = arguments?.getParcelable("allTeamsDataItem")
         }
     }
 
@@ -42,12 +42,12 @@ class TeamDetailFragment :
     }
 
     private fun setUp() {
-        setArticle()
+        setTeam()
     }
 
-    private fun setArticle() {
-        if (articleDataItem != null) {
-            getViewDataBinding().article = articleDataItem
+    private fun setTeam() {
+        if (allTeamsDataItem != null) {
+            getViewDataBinding().allTeamsDataItem = allTeamsDataItem
         }
     }
 }

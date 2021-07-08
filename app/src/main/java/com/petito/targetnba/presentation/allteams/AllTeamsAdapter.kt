@@ -15,7 +15,7 @@ class AllTeamsAdapter(items: MutableList<AllTeamsDataItem>, listener: AllTeamsAd
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
 
-        return ArticleViewHolder(
+        return AllTeamsViewHolder(
             ItemViewBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
@@ -23,12 +23,12 @@ class AllTeamsAdapter(items: MutableList<AllTeamsDataItem>, listener: AllTeamsAd
         )
     }
 
-    inner class ArticleViewHolder(private val mBinding: ItemViewBinding) :
+    inner class AllTeamsViewHolder(private val mBinding: ItemViewBinding) :
         BaseViewHolder(mBinding.root) {
         override fun onBind(position: Int) {
             if (items.isNotEmpty()) {
                 val teamDataItem = items[position]
-                mBinding.articleDataItem = teamDataItem
+                mBinding.allTeamsDataItem = teamDataItem
                 mBinding.item = AllTeamsItemView { itemListener.onItemClick(teamDataItem) }
                 mBinding.executePendingBindings()
             }

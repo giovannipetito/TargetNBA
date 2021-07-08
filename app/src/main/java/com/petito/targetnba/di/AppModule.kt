@@ -85,7 +85,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideArticleDataSource(allTeamsRepository: AllTeamsRepository): AllTeamsDataSource {
+    fun provideAllTeamsDataSource(allTeamsRepository: AllTeamsRepository): AllTeamsDataSource {
         return allTeamsRepository
     }
 

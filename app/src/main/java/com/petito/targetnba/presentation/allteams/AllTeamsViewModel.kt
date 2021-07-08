@@ -10,16 +10,16 @@ import com.petito.targetnba.remote.AllTeamsDataSource
 import kotlinx.coroutines.launch
 
 class AllTeamsViewModel(
-    private val articleDataSource: AllTeamsDataSource
+    private val allTeamsDataSource: AllTeamsDataSource
 ) : BaseViewModel() {
-    private val articlesLiveData: MutableLiveData<List<AllTeamsDataItem>> = MutableLiveData()
+    private val listMLD: MutableLiveData<List<AllTeamsDataItem>> = MutableLiveData()
 
-    private fun fetchArticles(page: Int) {
+    private fun fetchTeams(page: Int) {
         viewModelScope.launch {
             isLoading.value = true
-            when (val result = articleDataSource.getAllTeams(page)) {
+            when (val result = allTeamsDataSource.getAllTeams(page)) {
                 is Result.Success<AllTeamsResponse> -> {
-                    result.data.teams?.let { mapArticlesDataItem(it) }
+                    result.data.teams?.let { mapTeamsDataItem(it) }
                     isLoading.value = false
                 }
                 is Result.Error -> {
@@ -30,15 +30,15 @@ class AllTeamsViewModel(
         }
     }
 
-    val articlesLiveDataLiveData: LiveData<List<AllTeamsDataItem>>
-        get() = articlesLiveData
+    val listLD: LiveData<List<AllTeamsDataItem>>
+        get() = listMLD
 
     init {
-        fetchArticles(0)
+        fetchTeams(0)
     }
 
-    private fun mapArticlesDataItem(articles: List<AllTeamsResponse.Team>) {
-        articlesLiveData.value = articles.map {
+    private fun mapTeamsDataItem(teams: List<AllTeamsResponse.Team>) {
+        listMLD.value = teams.map {
             AllTeamsDataItem(
                 it.id!!,
                 it.abbreviation,

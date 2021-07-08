@@ -6,5 +6,5 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class TeamDetailFragmentProvider {
     @ContributesAndroidInjector
-    abstract fun provideArticleDetailsFragmentFactory(): TeamDetailFragment
+    abstract fun provideTeamDetailFragmentFactory(): TeamDetailFragment
 }

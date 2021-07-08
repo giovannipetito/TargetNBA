@@ -18,7 +18,7 @@ class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel
     AllTeamsAdapterListener {
     @Inject
     lateinit var factory: ViewModelProviderFactory
-    private lateinit var articleAdapter: AllTeamsAdapter
+    private lateinit var allTeamsAdapter: AllTeamsAdapter
 
     override val bindingVariable: Int
         get() = BR.viewModel
@@ -33,16 +33,16 @@ class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel
         ).get(AllTeamsViewModel::class.java)
 
     override fun onItemClick(item: AllTeamsDataItem) {
-//        navigate(
-//            NavigationCommand.To(
-//                ArticleFragmentDirections.toArticleDetailsFragment(item)
-//            )
-//        )
+        navigate(
+            NavigationCommand.To(
+                AllTeamsFragmentDirections.actionAllTeamsFragmentToTeamDetailFragment(item)
+            )
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        articleAdapter = AllTeamsAdapter(arrayListOf(), this)
+        allTeamsAdapter = AllTeamsAdapter(arrayListOf(), this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,6 +61,6 @@ class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel
     private fun setUpRecyclerView() {
         getViewDataBinding().resultsBeanRecyclerView.layoutManager = LinearLayoutManager(activity)
         getViewDataBinding().resultsBeanRecyclerView.itemAnimator = DefaultItemAnimator()
-        getViewDataBinding().resultsBeanRecyclerView.adapter = articleAdapter
+        getViewDataBinding().resultsBeanRecyclerView.adapter = allTeamsAdapter
     }
 }
