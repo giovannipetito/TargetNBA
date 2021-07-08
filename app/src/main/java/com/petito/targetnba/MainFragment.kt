@@ -27,7 +27,7 @@ class MainFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.main_button -> navController.navigate(R.id.action_mainFragment_to_secondFragment)
+            R.id.main_button -> navController.navigate(R.id.action_mainFragment_to_allTeamsFragment)
         }
     }
 }

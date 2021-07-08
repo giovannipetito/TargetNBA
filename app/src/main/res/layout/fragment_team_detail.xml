@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="article"
+            type="com.petito.targetnba.presentation.allteams.AllTeamsDataItem" />
+
+        <variable
+            name="viewModel"
+            type="com.petito.targetnba.presentation.teamdetail.TeamDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                tools:context=".presentation.main.article_details.ArticleDetailsFragment">
+
+                <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="@{article.full_name}"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="Whistle-Blower Complaint Sets Off a Battle Involving Trump" />
+
+                <TextView
+                    android:id="@+id/authorTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="16dp"
+                    android:text="@{article.name}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    tools:text="By JULIAN E. BARNES, NICHOLAS FANDOS, MICHAEL S. SCHMIDT and MATTHEW ROSENBERG" />
+
+                <TextView
+                    android:id="@+id/contentTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="16dp"
+                    android:text="@{article.abbreviation}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    tools:text="The magazine said the president had abused his power and violated the Constitution. Mr. Trump responded by saying he had done more for evangelicals than any other president." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="16dp"
+                    android:gravity="end|center"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <TextView
+                        android:id="@+id/dateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:singleLine="true"
+                        android:text="@{article.city}"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        tools:text="2019-09-19" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/urlTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:autoLink="web"
+                    android:linksClickable="true"
+                    android:text="@{article.name}"
+                    android:textSize="12sp"
+                    tools:text="https://google.com" />
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

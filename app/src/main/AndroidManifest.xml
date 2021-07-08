@@ -6,8 +6,10 @@
     <dist:module dist:instant="true" />
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_ball"
         android:label="@string/app_name"
@@ -16,7 +18,7 @@
         android:theme="@style/ThemeNoActionBar.TargetNBA"
         android:fullBackupContent="@xml/backup_descriptor">
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".presentation.MainActivity"
             android:screenOrientation="fullSensor"
             android:launchMode="singleInstance"
             android:windowSoftInputMode="adjustResize">
