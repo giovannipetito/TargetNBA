@@ -2,7 +2,7 @@ package com.petito.targetnba.presentation.allteams
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.petito.targetnba.databinding.ItemViewBinding
+import com.petito.targetnba.databinding.TeamItemBinding
 import com.petito.targetnba.presentation.base.BaseRecyclerViewAdapter
 import com.petito.targetnba.presentation.base.BaseViewHolder
 
@@ -16,14 +16,14 @@ class AllTeamsAdapter(items: MutableList<AllTeamsDataItem>, listener: AllTeamsAd
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
 
         return AllTeamsViewHolder(
-            ItemViewBinding.inflate(
+            TeamItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
             )
         )
     }
 
-    inner class AllTeamsViewHolder(private val mBinding: ItemViewBinding) :
+    inner class AllTeamsViewHolder(private val mBinding: TeamItemBinding) :
         BaseViewHolder(mBinding.root) {
         override fun onBind(position: Int) {
             if (items.isNotEmpty()) {

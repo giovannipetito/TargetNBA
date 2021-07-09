@@ -22,12 +22,12 @@ class MainFragment : Fragment(), View.OnClickListener {
 
         navController = Navigation.findNavController(view)
 
-        main_button.setOnClickListener(this)
+        sign_in_button.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.main_button -> navController.navigate(R.id.action_mainFragment_to_allTeamsFragment)
+            R.id.sign_in_button -> navController.navigate(R.id.action_mainFragment_to_allTeamsFragment)
         }
     }
 }

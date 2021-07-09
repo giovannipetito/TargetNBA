@@ -4,10 +4,12 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/main_button"
+        android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="GO" />
+        android:layout_marginBottom="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/button_sign_in" />
 
 </RelativeLayout>

@@ -9,7 +9,6 @@ import com.petito.targetnba.BR
 import com.petito.targetnba.R
 import com.petito.targetnba.ViewModelProviderFactory
 import com.petito.targetnba.databinding.FragmentAllTeamsBinding
-import com.petito.targetnba.presentation.MainActivity
 import com.petito.targetnba.presentation.base.BaseFragment
 import com.petito.targetnba.presentation.base.NavigationCommand
 import javax.inject.Inject
@@ -51,16 +50,12 @@ class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel
     }
 
     private fun setUp() {
-        if (activity != null) (activity as MainActivity).setSupportActionBar(
-            getViewDataBinding().toolbar
-        )
-        setHasOptionsMenu(true)
         setUpRecyclerView()
     }
 
     private fun setUpRecyclerView() {
-        getViewDataBinding().resultsBeanRecyclerView.layoutManager = LinearLayoutManager(activity)
-        getViewDataBinding().resultsBeanRecyclerView.itemAnimator = DefaultItemAnimator()
-        getViewDataBinding().resultsBeanRecyclerView.adapter = allTeamsAdapter
+        getViewDataBinding().recyclerViewAllTeams.layoutManager = LinearLayoutManager(activity)
+        getViewDataBinding().recyclerViewAllTeams.itemAnimator = DefaultItemAnimator()
+        getViewDataBinding().recyclerViewAllTeams.adapter = allTeamsAdapter
     }
 }

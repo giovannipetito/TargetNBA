@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="android.view.View" />
 
         <variable
             name="viewModel"
             type="com.petito.targetnba.presentation.allteams.AllTeamsViewModel" />
-
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="@color/deep_purple_50">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,32 +22,22 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:subtitleTextColor="@color/white"
-                app:titleTextColor="@color/white" />
-
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/resultsBeanRecyclerView"
+                android:id="@+id/recycler_view_all_teams"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:adapter="@{viewModel.listLD}"
-                tools:listitem="@layout/item_view" />
+                tools:listitem="@layout/team_item" />
 
         </LinearLayout>
 
         <androidx.core.widget.ContentLoadingProgressBar
-            android:id="@+id/address_looking_up"
-            style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            style="?android:attr/progressBarStyleLarge" />
+
     </FrameLayout>
 
 </layout>
