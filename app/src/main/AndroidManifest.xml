@@ -14,12 +14,14 @@
         android:roundIcon="@mipmap/ic_ball"
         android:supportsRtl="true"
         android:theme="@style/ThemeNoActionBar.TargetNBA"
-        android:fullBackupContent="@xml/backup_descriptor">
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:dataExtractionRules="@xml/data_extraction_rules">
 
         <activity android:name=".MainActivity"
             android:screenOrientation="fullSensor"
             android:launchMode="singleInstance"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
