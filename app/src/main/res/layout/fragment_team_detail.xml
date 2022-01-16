@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="allTeamsDataItem"
+            type="com.petito.targetnba.presentation.allteams.AllTeamsDataItem" />
+
+        <variable
+            name="viewModel"
+            type="com.petito.targetnba.presentation.teamdetail.TeamDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/deep_purple_50">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:layout_gravity="center"
+                android:text="@{allTeamsDataItem.abbreviation}"
+                android:textColor="@color/deep_purple_100"
+                android:textSize="112sp"
+                android:fontFamily="@font/montserrat_bold"
+                tools:text="ATL" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{allTeamsDataItem.full_name}"
+                android:textColor="@color/deep_purple_700"
+                android:textSize="24sp"
+                android:fontFamily="@font/montserrat_regular"
+                tools:text="Atlanta Hawks" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="start"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="City: "
+                    android:textColor="@color/deep_purple_A700"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{allTeamsDataItem.city}"
+                    android:textColor="@color/deep_purple_A700"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textAllCaps="true"
+                    tools:text="Atlanta" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="start"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Division: "
+                    android:textColor="@color/deep_purple_A700"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{allTeamsDataItem.division}"
+                    android:textColor="@color/deep_purple_A700"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textAllCaps="true"
+                    tools:text="Southeast" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="12dp"
+                android:layout_gravity="start"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Conference: "
+                    android:textColor="@color/deep_purple_A700"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{allTeamsDataItem.conference}"
+                    android:textColor="@color/deep_purple_A700"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textAllCaps="true"
+                    tools:text="East" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+<!--        <Button-->
+<!--            android:id="@+id/sign_in_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="48dp"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:text="@string/button_sign_in" />-->
+
+    </RelativeLayout>
+
+</layout>

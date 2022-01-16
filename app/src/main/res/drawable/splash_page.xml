@@ -7,16 +7,10 @@
     <item
         android:drawable="@mipmap/background"/>
 
-<!--    <item android:top="0dp">-->
-<!--        <bitmap-->
-<!--            android:gravity="center"-->
-<!--            android:src="@mipmap/ic_ball"/>-->
-<!--    </item>-->
-
     <item android:top="0dp">
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/ic_ball"/>
+            android:src="@drawable/ic_ball" />
     </item>
 
 </layer-list>

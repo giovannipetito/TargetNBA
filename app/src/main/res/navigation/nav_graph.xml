@@ -13,8 +13,8 @@
         tools:layout="@layout/fragment_main">
 
         <action
-            android:id="@+id/action_mainFragment_to_secondFragment"
-            app:destination="@id/secondFragment"
+            android:id="@+id/action_mainFragment_to_allTeamsFragment"
+            app:destination="@id/allTeamsFragment"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             app:enterAnim="@anim/slide_in_right"
@@ -22,11 +22,34 @@
 
     </fragment>
 
-    <!-- SecondFragment -->
+    <!-- AllTeamsFragment -->
     <fragment
-        android:id="@+id/secondFragment"
-        android:name="com.petito.targetnba.SecondFragment"
-        android:label="fragment_view_transaction"
-        tools:layout="@layout/fragment_second" />
+        android:id="@+id/allTeamsFragment"
+        android:name="com.petito.targetnba.presentation.allteams.AllTeamsFragment"
+        android:label="fragment_all_teams"
+        tools:layout="@layout/fragment_all_teams">
+
+        <action
+            android:id="@+id/action_allTeamsFragment_to_teamDetailFragment"
+            app:destination="@id/teamDetailFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
+    </fragment>
+
+    <!-- TeamDetailFragment -->
+    <fragment
+        android:id="@+id/teamDetailFragment"
+        android:name="com.petito.targetnba.presentation.teamdetail.TeamDetailFragment"
+        android:label="fragment_team_detail"
+        tools:layout="@layout/fragment_team_detail">
+
+        <argument
+            android:name="allTeamsDataItem"
+            app:argType="com.petito.targetnba.presentation.allteams.AllTeamsDataItem" />
+
+    </fragment>
 
 </navigation>
