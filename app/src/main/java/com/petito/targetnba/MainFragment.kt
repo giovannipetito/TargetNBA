@@ -7,14 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_main.*
+import com.petito.targetnba.databinding.FragmentMainBinding
 
 class MainFragment : Fragment(), View.OnClickListener {
+
+    private var layoutBinding: FragmentMainBinding? = null
+    private val binding get() = layoutBinding
 
     private lateinit var navController: NavController
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        var view = super.onCreateView(inflater, container, savedInstanceState)
+        layoutBinding = FragmentMainBinding.inflate(inflater, container, false)
+        view = binding?.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -22,12 +28,17 @@ class MainFragment : Fragment(), View.OnClickListener {
 
         navController = Navigation.findNavController(view)
 
-        sign_in_button.setOnClickListener(this)
+        binding?.signInButton?.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.sign_in_button -> navController.navigate(R.id.action_mainFragment_to_allTeamsFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        layoutBinding = null
     }
 }
