@@ -13,10 +13,11 @@ import com.petito.targetnba.presentation.base.BaseFragment
 import com.petito.targetnba.presentation.base.NavigationCommand
 import javax.inject.Inject
 
-class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel>(),
-    AllTeamsAdapterListener {
+class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel>(), AllTeamsAdapterListener {
+
     @Inject
     lateinit var factory: ViewModelProviderFactory
+
     private lateinit var allTeamsAdapter: AllTeamsAdapter
 
     override val bindingVariable: Int
@@ -26,10 +27,7 @@ class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel
         get() = R.layout.fragment_all_teams
 
     override val viewModel: AllTeamsViewModel
-        get() = ViewModelProvider(
-            this,
-            factory
-        ).get(AllTeamsViewModel::class.java)
+        get() = ViewModelProvider(requireActivity(), factory)[AllTeamsViewModel::class.java]
 
     override fun onItemClick(item: AllTeamsDataItem) {
         navigate(
@@ -46,10 +44,6 @@ class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUp()
-    }
-
-    private fun setUp() {
         setUpRecyclerView()
     }
 

@@ -24,7 +24,7 @@ class TeamDetailFragment :
         get() = R.layout.fragment_team_detail
 
     override val viewModel: TeamDetailViewModel
-        get() = ViewModelProvider(this, factory).get(TeamDetailViewModel::class.java)
+        get() = ViewModelProvider(requireActivity(), factory)[TeamDetailViewModel::class.java]
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

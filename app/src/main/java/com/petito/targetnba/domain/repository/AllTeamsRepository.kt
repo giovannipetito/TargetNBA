@@ -9,10 +9,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class AllTeamsRepository @Inject constructor(
-    private val apiService: ApiService,
-    @param:ApiInfo private val apiKey: String
-) : AllTeamsDataSource {
+class AllTeamsRepository @Inject constructor(private val apiService: ApiService, @param:ApiInfo private val apiKey: String) : AllTeamsDataSource {
     override suspend fun getAllTeams(page: Int): Result<AllTeamsResponse> {
         return try {
             val allTeamsResponse = apiService.getAllTeams(0)

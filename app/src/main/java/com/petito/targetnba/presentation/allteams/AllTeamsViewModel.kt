@@ -9,15 +9,20 @@ import com.petito.targetnba.presentation.base.BaseViewModel
 import com.petito.targetnba.remote.AllTeamsDataSource
 import kotlinx.coroutines.launch
 
-class AllTeamsViewModel(
-    private val allTeamsDataSource: AllTeamsDataSource
-) : BaseViewModel() {
+class AllTeamsViewModel(private val allTeamsDataSource: AllTeamsDataSource) : BaseViewModel() {
+
     private val listMLD: MutableLiveData<List<AllTeamsDataItem>> = MutableLiveData()
+    val listLD: LiveData<List<AllTeamsDataItem>>
+        get() = listMLD
+
+    init {
+        fetchTeams(0)
+    }
 
     private fun fetchTeams(page: Int) {
         viewModelScope.launch {
             isLoading.value = true
-            when (val result = allTeamsDataSource.getAllTeams(page)) {
+            when (val result: Result<AllTeamsResponse> = allTeamsDataSource.getAllTeams(page)) {
                 is Result.Success<AllTeamsResponse> -> {
                     result.data.teams?.let { mapTeamsDataItem(it) }
                     isLoading.value = false
@@ -28,13 +33,6 @@ class AllTeamsViewModel(
                 }
             }
         }
-    }
-
-    val listLD: LiveData<List<AllTeamsDataItem>>
-        get() = listMLD
-
-    init {
-        fetchTeams(0)
     }
 
     private fun mapTeamsDataItem(teams: List<AllTeamsResponse.Team>) {

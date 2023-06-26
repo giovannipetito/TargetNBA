@@ -22,5 +22,5 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>(),
         get() = R.layout.activity_main
 
     override val viewModel: BaseViewModel
-        get() = ViewModelProvider(this, factory).get(BaseViewModel::class.java)
+        get() = ViewModelProvider(this, factory)[BaseViewModel::class.java]
 }

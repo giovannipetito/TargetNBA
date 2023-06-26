@@ -65,7 +65,7 @@ repositories {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.8.20'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.8.21'
 
     // androidx
     implementation 'androidx.multidex:multidex:2.0.1'
@@ -81,18 +81,18 @@ dependencies {
     kapt 'androidx.lifecycle:lifecycle-common-java8:2.6.1'
 
     // Coroutines
-    implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.core:core-role:1.1.0-rc01'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1'
 
     // Material
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.9.0'
 
     // Dependency injection - Dagger
-    implementation 'com.google.dagger:dagger:2.45'
+    implementation 'com.google.dagger:dagger:2.46.1'
     implementation 'com.google.dagger:dagger-android-support:2.45'
-    kapt 'com.google.dagger:dagger-compiler:2.45'
-    kapt 'com.google.dagger:dagger-android-processor:2.45'
+    kapt 'com.google.dagger:dagger-compiler:2.46.1'
+    kapt 'com.google.dagger:dagger-android-processor:2.46.1'
 
     // Databinding
     kapt 'com.android.databinding:compiler:3.1.4'

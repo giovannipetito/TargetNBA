@@ -43,9 +43,9 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
 
     override fun onStart() {
         super.onStart()
-        viewModel.showToast.observe(
-            this,
-            { Toast.makeText(activity, it, Toast.LENGTH_LONG).show() })
+        viewModel.showToast.observe(viewLifecycleOwner) {
+            Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
+        }
     }
 
     fun getViewDataBinding(): T {
@@ -63,19 +63,12 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         viewDataBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         return viewDataBinding.root
     }
 
-    override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?
-    ) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getViewDataBinding().setVariable(bindingVariable, viewModel)
         getViewDataBinding().lifecycleOwner = this
