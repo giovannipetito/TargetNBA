@@ -2,10 +2,11 @@ package com.petito.targetnba.di
 
 import android.app.Application
 import android.content.Context
-import com.petito.targetnba.BuildConfig
-import com.petito.targetnba.domain.repository.AllTeamsRepository
-import com.petito.targetnba.remote.AllTeamsDataSource
+import androidx.multidex.BuildConfig
+import com.petito.targetnba.domain.repository.UsersRepository
+import com.petito.targetnba.remote.UsersDataSource
 import com.petito.targetnba.remote.ApiService
+import com.petito.targetnba.utils.Config
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -64,8 +65,8 @@ class AppModule {
             .cache(cache)
             .addInterceptor { chain: Interceptor.Chain ->
                 val newRequest = chain.request().newBuilder()
-                    .addHeader("x-rapidapi-key", BuildConfig.API_KEY)
-                    .addHeader("x-rapidapi-host", BuildConfig.BASE_URL)
+                    .addHeader("x-rapidapi-key", Config.API_KEY)
+                    .addHeader("x-rapidapi-host", Config.BASE_URL)
                     // .header("User-Agent", Utils.getDeviceName()")
                     .addHeader("applicationId", "TARGET_NBA")
                     .addHeader("app_version", BuildConfig.VERSION_NAME)
@@ -84,7 +85,7 @@ class AppModule {
     @Singleton
     fun providesRetrofit(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(Config.BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -102,16 +103,16 @@ class AppModule {
     @Provides
     @ApiInfo
     fun provideApiKey(): String {
-        return BuildConfig.API_KEY
+        return Config.API_KEY
     }
 
     /**
-     * Provides an instance of AllTeamsDataSource, which is an implementation of AllTeamsRepository
+     * Provides an instance of UsersDataSource, which is an implementation of UsersRepository
      * that retrieves data from a remote API.
      */
     @Provides
     @Singleton
-    fun provideAllTeamsDataSource(allTeamsRepository: AllTeamsRepository): AllTeamsDataSource {
-        return allTeamsRepository
+    fun provideUsersDataSource(usersRepository: UsersRepository): UsersDataSource {
+        return usersRepository
     }
 }

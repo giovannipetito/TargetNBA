@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'com.google.devtools.ksp'
     id 'androidx.navigation.safeargs.kotlin'
     id 'com.google.dagger.hilt.android'
 }
@@ -25,25 +24,33 @@ android {
             debuggable true
             minifyEnabled false
             testCoverageEnabled true
-            buildConfigField("String", "BASE_URL", "\"https://free-nba.p.rapidapi.com/\"")
-            buildConfigField("String", "API_KEY", "\"019bd4d229msh3acba05acc429ddp1d5cd8jsna65c0bb9b162\"")
+            // buildConfigField("String", "BASE_URL", "\"https://reqres.in\"")
+            // buildConfigField("String", "API_KEY", "\"019bd4d229msh3acba05acc429ddp1d5cd8jsna65c0bb9b162\"")
         }
         release {
             debuggable false
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"https://free-nba.p.rapidapi.com/\"")
-            buildConfigField("String", "API_KEY", "\"019bd4d229msh3acba05acc429ddp1d5cd8jsna65c0bb9b162\"")
+            // buildConfigField("String", "BASE_URL", "\"https://reqres.in\"")
+            // buildConfigField("String", "API_KEY", "\"019bd4d229msh3acba05acc429ddp1d5cd8jsna65c0bb9b162\"")
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    kotlin {
+        jvmToolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+        // Or shorter:
+        // jvmToolchain(17)
     }
 
     packagingOptions {
@@ -99,8 +106,8 @@ dependencies {
     kapt 'com.android.databinding:compiler:3.1.4'
 
     // Navigation Component
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
 
     // GSON
     implementation 'com.google.code.gson:gson:2.10.1'

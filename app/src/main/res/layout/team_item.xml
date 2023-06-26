@@ -5,12 +5,12 @@
 
     <data>
         <variable
-            name="allTeamsDataItem"
-            type="com.petito.targetnba.presentation.allteams.AllTeamsDataItem" />
+            name="user"
+            type="com.petito.targetnba.domain.api.User" />
 
         <variable
             name="item"
-            type="com.petito.targetnba.presentation.allteams.AllTeamsItemView" />
+            type="com.petito.targetnba.presentation.users.UsersItemView" />
     </data>
 
     <RelativeLayout
@@ -47,7 +47,7 @@
                     android:layout_marginStart="24dp"
                     android:maxLines="1"
                     android:ellipsize="end"
-                    android:text="@{allTeamsDataItem.name}"
+                    android:text="@{user.firstName}"
                     android:textColor="@color/purple_700"
                     android:textSize="24sp"
                     android:fontFamily="@font/montserrat_medium"

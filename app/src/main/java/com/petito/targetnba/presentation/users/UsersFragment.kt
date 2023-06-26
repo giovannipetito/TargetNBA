@@ -1,45 +1,40 @@
-package com.petito.targetnba.presentation.allteams
+package com.petito.targetnba.presentation.users
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.petito.targetnba.BR
 import com.petito.targetnba.R
-import com.petito.targetnba.ViewModelProviderFactory
-import com.petito.targetnba.databinding.FragmentAllTeamsBinding
+import com.petito.targetnba.databinding.FragmentUsersBinding
+import com.petito.targetnba.domain.api.User
 import com.petito.targetnba.presentation.base.BaseFragment
 import com.petito.targetnba.presentation.base.NavigationCommand
-import javax.inject.Inject
 
-class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel>(), AllTeamsAdapterListener {
+class UsersFragment : BaseFragment<FragmentUsersBinding, UsersViewModel>(), UsersAdapterListener {
 
-    @Inject
-    lateinit var factory: ViewModelProviderFactory
-
-    private lateinit var allTeamsAdapter: AllTeamsAdapter
+    private lateinit var usersAdapter: UsersAdapter
 
     override val bindingVariable: Int
         get() = BR.viewModel
 
     override val layoutId: Int
-        get() = R.layout.fragment_all_teams
+        get() = R.layout.fragment_users
 
-    override val viewModel: AllTeamsViewModel get() = ViewModelProvider(requireActivity(), mainActivity.factory)[AllTeamsViewModel::class.java]
+    override val viewModel: UsersViewModel get() = ViewModelProvider(requireActivity(), mainActivity.factory)[UsersViewModel::class.java]
 
-    override fun onItemClick(item: AllTeamsDataItem) {
+    override fun onItemClick(user: User) {
         navigate(
             NavigationCommand.To(
-                AllTeamsFragmentDirections.actionAllTeamsFragmentToTeamDetailFragment(item)
+                AllTeamsFragmentDirections.actionAllTeamsFragmentToTeamDetailFragment(user)
             )
         )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        allTeamsAdapter = AllTeamsAdapter(arrayListOf(), this)
+        usersAdapter = UsersAdapter(arrayListOf(), this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,6 +45,6 @@ class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel
     private fun setUpRecyclerView() {
         getViewDataBinding().recyclerViewAllTeams.layoutManager = LinearLayoutManager(activity)
         getViewDataBinding().recyclerViewAllTeams.itemAnimator = DefaultItemAnimator()
-        getViewDataBinding().recyclerViewAllTeams.adapter = allTeamsAdapter
+        getViewDataBinding().recyclerViewAllTeams.adapter = usersAdapter
     }
 }

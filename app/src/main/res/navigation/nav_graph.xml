@@ -22,12 +22,12 @@
 
     </fragment>
 
-    <!-- AllTeamsFragment -->
+    <!-- UsersFragment -->
     <fragment
         android:id="@+id/allTeamsFragment"
-        android:name="com.petito.targetnba.presentation.allteams.AllTeamsFragment"
+        android:name="com.petito.targetnba.presentation.users.UsersFragment"
         android:label="fragment_all_teams"
-        tools:layout="@layout/fragment_all_teams">
+        tools:layout="@layout/fragment_users">
 
         <action
             android:id="@+id/action_allTeamsFragment_to_teamDetailFragment"
@@ -39,12 +39,12 @@
 
     </fragment>
 
-    <!-- TeamDetailFragment -->
+    <!-- UserFragment -->
     <fragment
         android:id="@+id/teamDetailFragment"
-        android:name="com.petito.targetnba.presentation.teamdetail.TeamDetailFragment"
+        android:name="com.petito.targetnba.presentation.user.UserFragment"
         android:label="fragment_team_detail"
-        tools:layout="@layout/fragment_team_detail">
+        tools:layout="@layout/fragment_user">
 
         <argument
             android:name="allTeamsDataItem"

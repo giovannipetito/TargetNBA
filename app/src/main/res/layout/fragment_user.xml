@@ -4,12 +4,12 @@
 
     <data>
         <variable
-            name="allTeamsDataItem"
-            type="com.petito.targetnba.presentation.allteams.AllTeamsDataItem" />
+            name="user"
+            type="com.petito.targetnba.domain.api.User" />
 
         <variable
             name="viewModel"
-            type="com.petito.targetnba.presentation.teamdetail.TeamDetailViewModel" />
+            type="com.petito.targetnba.presentation.user.UserViewModel" />
     </data>
 
     <RelativeLayout
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="34dp"
                 android:layout_gravity="center"
-                android:text="@{allTeamsDataItem.abbreviation}"
+                android:text="@{user.firstName}"
                 android:textColor="@color/deep_purple_100"
                 android:textSize="112sp"
                 android:fontFamily="@font/montserrat_bold"
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@{allTeamsDataItem.full_name}"
+                android:text="@{user.lastName}"
                 android:textColor="@color/deep_purple_700"
                 android:textSize="24sp"
                 android:fontFamily="@font/montserrat_regular"
@@ -63,7 +63,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{allTeamsDataItem.city}"
+                    android:text="@{user.email}"
                     android:textColor="@color/deep_purple_A700"
                     android:textSize="18sp"
                     android:fontFamily="@font/montserrat_medium"
@@ -91,7 +91,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{allTeamsDataItem.division}"
+                    android:text="@{user.id}"
                     android:textColor="@color/deep_purple_A700"
                     android:textSize="18sp"
                     android:fontFamily="@font/montserrat_medium"
@@ -119,7 +119,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{allTeamsDataItem.conference}"
+                    android:text="@{user.id}"
                     android:textColor="@color/deep_purple_A700"
                     android:textSize="18sp"
                     android:fontFamily="@font/montserrat_medium"
@@ -129,15 +129,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-<!--        <Button-->
-<!--            android:id="@+id/sign_in_button"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="48dp"-->
-<!--            android:layout_alignParentBottom="true"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:text="@string/button_sign_in" />-->
 
     </RelativeLayout>
 
