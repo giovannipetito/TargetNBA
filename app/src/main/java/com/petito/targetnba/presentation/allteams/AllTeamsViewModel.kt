@@ -11,9 +11,9 @@ import kotlinx.coroutines.launch
 
 class AllTeamsViewModel(private val allTeamsDataSource: AllTeamsDataSource) : BaseViewModel() {
 
-    private val listMLD: MutableLiveData<List<AllTeamsDataItem>> = MutableLiveData()
-    val listLD: LiveData<List<AllTeamsDataItem>>
-        get() = listMLD
+    private val _allTeams: MutableLiveData<List<AllTeamsDataItem>> = MutableLiveData()
+    val allTeams: LiveData<List<AllTeamsDataItem>>
+        get() = _allTeams
 
     init {
         fetchTeams(0)
@@ -36,7 +36,7 @@ class AllTeamsViewModel(private val allTeamsDataSource: AllTeamsDataSource) : Ba
     }
 
     private fun mapTeamsDataItem(teams: List<AllTeamsResponse.Team>) {
-        listMLD.value = teams.map {
+        _allTeams.value = teams.map {
             AllTeamsDataItem(
                 it.id!!,
                 it.abbreviation,

@@ -10,9 +10,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import dagger.android.support.AndroidSupportInjection
+import com.petito.targetnba.presentation.MainActivity
 
 abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment() {
+
+    lateinit var mainActivity: MainActivity
 
     private lateinit var viewDataBinding: T
 
@@ -37,8 +39,9 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
     abstract val viewModel: V
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        performDependencyInjection()
         super.onCreate(savedInstanceState)
+
+        mainActivity = activity as MainActivity
     }
 
     override fun onStart() {
@@ -73,9 +76,5 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
         getViewDataBinding().setVariable(bindingVariable, viewModel)
         getViewDataBinding().lifecycleOwner = this
         getViewDataBinding().executePendingBindings()
-    }
-
-    private fun performDependencyInjection() {
-        AndroidSupportInjection.inject(this)
     }
 }

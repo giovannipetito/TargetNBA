@@ -7,11 +7,12 @@ import com.petito.targetnba.ViewModelProviderFactory
 import com.petito.targetnba.databinding.ActivityMainBinding
 import com.petito.targetnba.presentation.base.BaseActivity
 import com.petito.targetnba.presentation.base.BaseViewModel
-import dagger.android.HasAndroidInjector
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>(),
-    HasAndroidInjector {
+@AndroidEntryPoint
+class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>() {
+
     @Inject
     lateinit var factory: ViewModelProviderFactory
 
@@ -22,5 +23,5 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel>(),
         get() = R.layout.activity_main
 
     override val viewModel: BaseViewModel
-        get() = ViewModelProvider(this, factory)[BaseViewModel::class.java]
+        get() = ViewModelProvider(this, factory.apply { application })[BaseViewModel::class.java]
 }

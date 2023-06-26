@@ -11,10 +11,11 @@ import com.petito.targetnba.presentation.allteams.AllTeamsDataItem
 import com.petito.targetnba.presentation.base.BaseFragment
 import javax.inject.Inject
 
-class TeamDetailFragment :
-    BaseFragment<FragmentTeamDetailBinding, TeamDetailViewModel>() {
+class TeamDetailFragment : BaseFragment<FragmentTeamDetailBinding, TeamDetailViewModel>() {
+
     @Inject
     lateinit var factory: ViewModelProviderFactory
+
     private var allTeamsDataItem: AllTeamsDataItem? = null
 
     override val bindingVariable: Int
@@ -23,8 +24,7 @@ class TeamDetailFragment :
     override val layoutId: Int
         get() = R.layout.fragment_team_detail
 
-    override val viewModel: TeamDetailViewModel
-        get() = ViewModelProvider(requireActivity(), factory)[TeamDetailViewModel::class.java]
+    override val viewModel: TeamDetailViewModel get() = ViewModelProvider(requireActivity(), mainActivity.factory)[TeamDetailViewModel::class.java]
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,15 +33,8 @@ class TeamDetailFragment :
         }
     }
 
-    override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?
-    ) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUp()
-    }
-
-    private fun setUp() {
         setTeam()
     }
 

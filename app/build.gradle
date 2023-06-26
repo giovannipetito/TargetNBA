@@ -2,7 +2,9 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -88,11 +90,10 @@ dependencies {
     // Material
     implementation 'com.google.android.material:material:1.9.0'
 
-    // Dependency injection - Dagger
-    implementation 'com.google.dagger:dagger:2.46.1'
-    implementation 'com.google.dagger:dagger-android-support:2.45'
-    kapt 'com.google.dagger:dagger-compiler:2.46.1'
-    kapt 'com.google.dagger:dagger-android-processor:2.46.1'
+    // Dependendcy Injection - Hilt
+    implementation 'com.google.dagger:hilt-android:2.46.1'
+    implementation 'androidx.hilt:hilt-work:1.0.0'
+    kapt 'com.google.dagger:hilt-android-compiler:2.46.1'
 
     // Databinding
     kapt 'com.android.databinding:compiler:3.1.4'

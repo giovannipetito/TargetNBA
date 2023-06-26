@@ -1,26 +1,24 @@
 package com.petito.targetnba
 
+import android.annotation.SuppressLint
 import android.app.Application
-import com.petito.targetnba.di.DaggerAppComponent
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
-import javax.inject.Inject
+import android.content.Context
+import dagger.hilt.android.HiltAndroidApp
 
-class App : Application(), HasAndroidInjector {
-    @Inject
-    lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Any>
+@HiltAndroidApp
+class App : Application() {
+
+    companion object {
+        @SuppressLint("StaticFieldLeak")
+        lateinit var context: Context
+
+        fun getInstance(): Companion {
+            return this
+        }
+    }
 
     override fun onCreate() {
         super.onCreate()
-
-        DaggerAppComponent.builder()
-            .application(this)
-            .build()
-            .inject(this)
-    }
-
-    override fun androidInjector(): AndroidInjector<Any> {
-        return activityDispatchingAndroidInjector
+        context = applicationContext
     }
 }

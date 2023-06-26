@@ -8,6 +8,8 @@ import com.petito.targetnba.remote.AllTeamsDataSource
 import com.petito.targetnba.remote.ApiService
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,6 +19,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
+@InstallIn(SingletonComponent::class)
 class AppModule {
 
     private val cacheInterceptor = Interceptor { chain ->

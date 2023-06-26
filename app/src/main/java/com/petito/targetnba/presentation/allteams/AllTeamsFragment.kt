@@ -2,6 +2,7 @@ package com.petito.targetnba.presentation.allteams
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,8 +27,7 @@ class AllTeamsFragment : BaseFragment<FragmentAllTeamsBinding, AllTeamsViewModel
     override val layoutId: Int
         get() = R.layout.fragment_all_teams
 
-    override val viewModel: AllTeamsViewModel
-        get() = ViewModelProvider(requireActivity(), factory)[AllTeamsViewModel::class.java]
+    override val viewModel: AllTeamsViewModel get() = ViewModelProvider(requireActivity(), mainActivity.factory)[AllTeamsViewModel::class.java]
 
     override fun onItemClick(item: AllTeamsDataItem) {
         navigate(

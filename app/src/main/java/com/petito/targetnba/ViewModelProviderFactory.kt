@@ -11,8 +11,8 @@ import javax.inject.Singleton
 @Singleton
 class ViewModelProviderFactory @Inject constructor(
     private val allTeamsDataSource: AllTeamsDataSource
-) : ViewModelProvider.NewInstanceFactory() {
-    @Suppress("UNCHECKED_CAST")
+    ) : ViewModelProvider.NewInstanceFactory() {
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(AllTeamsViewModel::class.java) -> {
